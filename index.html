@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>ImgToPdf</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="logo">ImgToPDF</div>
+            <div id="made-by">Made by Utkarsh & Piyush</div>
+        </nav>
+    </header>
+
+    <div id="container">
+        <h1>Image To PDF Converter</h1>
+        <div id="upload">
+            <input type="file" name="image" accept=".png, .jpg, .jpeg" id="imageInput" multiple>
+            <input type="button" value="Upload" onclick="showImages()">
+        </div>
+        <div id="image-container">
+            <!-- displaying uploaded images -->
+        </div>
+        <div id="but2">
+            <input type="button" value="Download PDF" onclick="downloadPDF()">
+        </div>
+        <div id="links">
+            <a href="length convertor\length.html">Length Conversion</a> 
+           <div id="twolink"> <a href="Cal-C\index.html">Calculator</a></div>
+        </div>
+    </div>
+
+    <script>
+        function showImages() {
+            const input = document.getElementById('imageInput');
+            const imgContainer = document.getElementById('image-container');
+            imgContainer.innerHTML = ""; // Clear previous images
+
+            for (let i = 0; i < input.files.length; i++) {
+                const reader = new FileReader();
+                const imgElement = document.createElement('img');
+
+                reader.onload = function (e) {
+                    imgElement.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[i]);
+                imgContainer.appendChild(imgElement);
+            }
+        }
+
+        function downloadPDF() {
+            const imgContainer = document.getElementById('image-container');
+            const images = imgContainer.getElementsByTagName('img');
+            const pdf = new jspdf.jsPDF();
+
+            for (let i = 0; i < images.length; i++) {
+                const imgDataUrl = images[i].src;
+
+                if (imgDataUrl) {
+                    const img = new Image();
+                    img.src = imgDataUrl;
+
+                    const width = 210; // A4 width
+                    const height = (img.height * width) / img.width;
+
+                    pdf.addPage();
+                    pdf.addImage(imgDataUrl, 'JPEG', 0, 0, width, height);
+                }
+            }
+
+            if (pdf.internal.getNumberOfPages() > 0) {
+                pdf.save('converted.pdf');
+            } else {
+                alert('Please upload at least one image.');
+            }
+        }
+    </script>
+</body>
+
+</html>

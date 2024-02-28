@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="calc">
+        <input type="text" id="inn" readonly>
+        <div class="button-row" id="butt1">
+            <button onclick="
+            currentDisplay ='';
+            document.querySelector('#inn').value = currentDisplay;">C</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 1;
+            document.querySelector('#inn').value = currentDisplay;">1</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 2;
+            document.querySelector('#inn').value = currentDisplay;">2</button>
+        </div>
+        <div class="button-row" id="butt2">
+            <button onclick="
+            currentDisplay = currentDisplay + '+';
+            document.querySelector('#inn').value = currentDisplay;">+</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 3;
+            document.querySelector('#inn').value = currentDisplay;">3</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 4;
+            document.querySelector('#inn').value = currentDisplay;">4</button>
+        </div>
+        <div class="button-row" id="butt3">
+            <button onclick="
+            currentDisplay = currentDisplay + '-';
+            document.querySelector('#inn').value = currentDisplay;">-</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 5;
+            document.querySelector('#inn').value = currentDisplay;">5</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 6;
+            document.querySelector('#inn').value = currentDisplay;">6</button>
+        </div>
+        <div class="button-row" id="butt4">
+            <button onclick="
+            currentDisplay = currentDisplay + '*';
+            document.querySelector('#inn').value = currentDisplay;">*</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 7;
+            document.querySelector('#inn').value = currentDisplay;">7</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 8;
+            document.querySelector('#inn').value = currentDisplay;">8</button>
+        </div>
+        <div class="button-row" id="butt5">
+            <button onclick="
+            currentDisplay = currentDisplay + '/';
+            document.querySelector('#inn').value = currentDisplay;">/</button>
+            <button onclick="
+            let result = eval(currentDisplay);
+            currentDisplay = result;
+            document.querySelector('#inn').value = currentDisplay;">=</button>
+            <button onclick="
+            currentDisplay = currentDisplay + 9;
+            document.querySelector('#inn').value = currentDisplay;">9</button>
+        </div>
+        <div class="button-row" id="butt6">
+            <button onclick="
+            currentDisplay = currentDisplay + 0;
+            document.querySelector('#inn').value = currentDisplay;">0</button>
+            <button onclick="
+            currentDisplay = currentDisplay + '.';
+            document.querySelector('#inn').value = currentDisplay;">.</button>
+        </div>
+
+        <p>Go back for <span>Cal-C</span> & <span>ImgToPdf</span></p>
+    </div>
+
+
+    <script>
+        let currentDisplay = '';
+        document.querySelector('#inn').value = currentDisplay;
+    </script>
+</body>
+</html>

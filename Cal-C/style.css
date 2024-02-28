@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#calc {
+    background-color: rgba(106, 106, 107, 0.984);
+    border: 1vb solid rgb(191, 190, 190);
+    border-radius: 1vb;
+    padding: 1rem;
+    max-width: 400px;
+    margin: auto;
+}
+
+#inn {
+    width: 100%;
+    margin: 1rem 0;
+    height: 3rem;
+    border: .5vb solid;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+button {
+    width: 30%;
+    margin: 1vw;
+    height: 3.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: .3vw solid;
+}
+
+button:hover {
+    background-color: darkorange;
+    color: white;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-around;
+}
+
+p span{
+    color:  white;
+}
+
+@media only screen and (max-width: 600px) {
+    button {
+        width: 40%;
+    }
+}
+
+#links a{
+    color: white;
+    font-size: larger;
+}
